@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <style>
+    .image {
+box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);
+height: 250px;
+overflow: hidden;
+margin: 15px auto;
+position: relative;
+width: 250px;
+}
+
+figure img {
+border-radius: 5px;
+height: 100%;
+transition: all .23s ease;
+width: 100%;
+}
+
+.image figcaption {
+color: #555;
+font-family: 'Exo';
+height: 100%;
+left: 0;
+line-height: 250px;
+position: absolute;
+text-align: center;
+text-transform: uppercase;
+top: 0;
+transition: all .23s ease;
+width: 100%;
+}
+
+.image.fade figcaption {
+opacity: 0;
+visibility: hidden;
+}
+
+.image.push figcaption {
+top: 0;
+transform: translateY(250px);
+}
+
+.image.push:hover > img {
+transform: translateY(-250px);
+}
+
+.image.push:hover > figcaption {
+transform: translateY(0px);
+}
+
+.image.fade:hover > img {
+opacity: 0;
+visibility: hidden;
+}
+
+.image.fade:hover > figcaption {
+opacity: 1;
+visibility: visible;
+}
+
+/* Form styles */
+form {
+margin: 20px auto;
+width: 150px;
+}
+
+form label {
+font-family: 'Segoe UI', 'Open Sans';
+font-size: 14px;
+font-weight: 500;
+}
+
+form select {
+border: 1px solid #ddd;
+border-radius: 2px;
+font-family: 'Segoe UI', 'Open Sans';
+margin: 0 0 0 10px;
+padding: 0 1rem;
+}
+      @media screen and (min-width: 2000px){
+      
+      }
+      </style>
+      
+      <figure class="image fade">
+          <img src="http://4.bp.blogspot.com/-KcxlSXC0qk8/TeKSFXmSAjI/AAAAAAAAAS8/cYqGQolvNbs/s1600/3musicos.jpg">
+          <figcaption>Los tres músicos</figcaption>
+      </figure>
+        
+      <form>
+          <label for="effect">Effect</label>
+          <select id="effect">
+              <option value="fade">Fade</option>
+              <option value="push">Push</option>
+          </select>
+      </form>
+      
+
+      <script>
+          let image = document.querySelector('.image');
+          let select = document.getElementById('effect');
+
+          select.addEventListener('change', function (e) {
+          image.className = `image ${this.value}`;
+          });
+      </script>    
+</body>
+</html>
