@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+        
+    
+</head>
+<body>
+    
+    <script src="jquery-3.6.0.min.js"></script>
+<style> 
+    .carrousel {
+        width: 90%;
+        max-width: 120em;
+        padding: 2em;
+        transition: all 0.4s ease;
+        overflow: hidden;
+        margin: auto;
+    }
+
+    .carrousel .grande {
+        width: 200%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: flex-start;
+        padding: 0 2em;
+        transition: all 0.5s ease;
+        transform: translateX(0%);
+    }
+
+    .carrousel .img {
+        width: calc( 100% / 2 - 2em);
+        min-height: 5vh;
+        transition: all 0.4s ease;
+        text-align: center;
+    }
+
+    .carrousel .puntos {
+        width: 100%;
+        padding: 0.4em;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        border: 1px solid black;
+    }
+
+    .carrousel .punto {
+        width: 50%;
+        padding: 1em 0;
+        margin: 1em;
+        transition: all 0.4s ease;
+        list-style-type: none;
+        border-right: 1px solid;
+        font-size: 0.8em;
+    }
+
+    .carrousel .NightBackground{
+        border: none;
+    }
+
+    .carrousel .punto.activo {
+        background-color: white;
+    }
+
+
+    .contenedorImgText{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .cajaDeTextContenedor{
+        width: 50vw;
+        padding: 0 2em;
+    }
+
+
+
+@media screen and (max-width: 640px){
+    .contenedorImgText{
+        display: block;
+        width: 100%;
+    }
+    .grande{
+        padding: 0!important;
+    }
+    .carrousel .img {
+        width: calc( 100% / 1 );
+        max-width: 100vw;
+    }
+    .cajaDeTextContenedor {
+        width: 100%;
+        padding: 0;
+    }
+    .carrousel {
+        padding: 0;
+        width: 95%;
+    }
+    .carrousel .puntos{
+        width: 98%;
+        padding: 0;
+    }
+    .carrousel .punto{
+        width: 50%;
+        padding: 1em 0;
+        margin: 0;
+    }
+}
+
+
+
+li[id^='id_1']:hover {
+  background:  #FEF0EA!important;
+}
+li[id^='id_2']:hover {
+  background: #7c97ac!important;
+}
+
+
+    </style>
+
+    <div class="carrousel">
+
+        <ul class="puntos">
+            <li id="id_1" class="punto MorningBackground activo">MORNING ROUTINE</li>
+            <li id="id_2" class="punto NightBackground activo" >NIGHT ROUTINE</li>
+        </ul>
+        <div class="grande">
+            <div class="contenedorImgText">
+                <img src="https://images.squarespace-cdn.com/content/v1/5bda2b47cef372c06fd2a748/1660063289859-KF40W8G5O78G664Z6ZLE/rutina-dia-11.png?format=2500w" alt="" class="img">
+                <div class="cajaDeTextContenedor">
+                    <h3>STEP 1: CLEAN</h3>
+                    <p>Apply 8-10 oil drops in your hand. Massage over your face with or without makeup, and remove with water-dampened cloth.</p>
+                    <h3>STEP 2: TONE</h3>
+                    <p>Mist 4-5 pumps over your face and leave on skin.</p>
+                    <h3>STEP 3: DAY</h3>
+                    <p>Apply 1-2 pumps over your face, massage gently and leave on your skin.</p>
+                    
+                </div>
+            </div>
+            
+            <div class="contenedorImgText">
+                <img src="https://images.squarespace-cdn.com/content/v1/5bda2b47cef372c06fd2a748/1660063290343-58ILN4SLO4R5NY3E064P/rutina-noche-10.png?format=500w" alt="" class="img">
+                <div class="cajaDeTextContenedor">
+                    <h3>STEP 1: CLEAN</h3>
+                    <p>Apply 8-10 oil drops in your hand. Massage over your face with or without makeup, and remove with water-dampened cloth.</p>
+                    <h3>STEP 2: TONE</h3>
+                    <p>Mist 4-5 pumps over your face and leave on skin.</p>
+                    <h3>STEP 3: NIGHT</h3>
+                    <p>Apply 1-2 pumps over your face, massage gently and leave on your skin.</p>
+                    
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    
+    
+<script>
+    'use strict'
+
+const grande    = document.querySelector('.grande')
+const punto     = document.querySelectorAll('.punto')
+
+// Cuando CLICK en punto
+    // Saber la posición de ese punto
+    // Aplicar un transform translateX al grande
+    // QUITAR la clase activo de TODOS puntos
+    // AÑADIR la clase activo al punto que hemos hecho CLICK
+
+// Recorrer TODOS los punto
+punto.forEach( ( cadaPunto , i )=> {
+    // Asignamos un CLICK a cadaPunto
+    punto[i].addEventListener('click',()=>{
+
+        // Guardar la posición de ese PUNTO
+        let posicion  = i
+        // Calculando el espacio que debe DESPLAZARSE el GRANDE
+        let operacion = posicion * -50
+
+        // MOVEMOS el grand
+        grande.style.transform = `translateX(${ operacion }%)`
+
+        // Recorremos TODOS los punto
+        punto.forEach( ( cadaPunto , i )=>{
+            // Quitamos la clase ACTIVO a TODOS los punto
+            punto[i].classList.add('activo')
+        })
+
+        // Añadir la clase activo en el punto que hemos hecho CLICK
+        punto[i].classList.remove('activo')
+        
+        
+        
+
+    })
+})
+</script>
+
+
+</body>
+</html>
