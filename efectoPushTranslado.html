@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+    <style>
+        .imageBotellas {
+            width: 10%;
+            margin-top: 30px;
+        }
+
+        figure img {
+            transition: all .23s ease;
+            width: 100%;
+        }
+        .imageBotellas:hover > img {
+            transform: translateY(-50px);
+        }
+
+        .imageBotellas figcaption {
+            text-align: left;
+            transition: all .23s ease;
+            width: 100%;
+            transform: translateY(50px);
+            visibility: hidden;
+            margin-top:-50px;
+        }
+
+        .imageBotellas:hover > figcaption {
+            transform: translateY(0px);
+            visibility: visible;
+        }
+
+        .contenedorDeImg{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .contenedorMobile{
+            display: none;
+        }
+
+        /*-- Linea temporal ---*/
+        .contenedorDePasos{
+            display: flex;
+            width: 100%;
+        }
+        .pasoUno{
+            width: 40%;
+        }
+        .divNumLinea{
+            display:flex;
+            align-items: center;
+            padding-right: 1em;
+        }
+        .colUno{
+            width: 50%;
+        }
+        .pasoUltimo{
+            width: 20%;
+        }
+        .colVacio{
+            width: 50%;
+        }
+        .lineaNum{
+            border-top: 2px solid #DCDCDC;
+            width: 94%; 
+            margin-left: 1em;
+        }
+        @media screen and (max-width: 640px){
+            .contenedorDeImg{
+                display: none;
+            }
+            .contenedorMobile{
+                display:flex;
+            }
+            .imgContenedor{
+                padding: 1em;
+                width: 40%;
+            }
+            .imgContenedor img{
+                width: 70%;
+            }
+            .pasoUno, .colUno{
+                width: 90%;
+                padding: 1em 0;
+            }
+            .contenedorDePasos{
+                display: block;
+                padding: 2em;
+            }
+            .lineaNum, .colVacio{
+                display:none;
+            }
+        }
+    </style>
+
+    <div class="contenedorDeImg">
+
+        <figure class="imageBotellas ">
+            <img src="https://static1.squarespace.com/static/5bda2b47cef372c06fd2a748/t/6334a5c5e05a92463bb49da3/1664394693506/Clean.png">
+            <figcaption style="color:#D68664 ;">Cleasing Oil & Makeup Remover</figcaption>
+        </figure>
+
+        
+        <figure class="imageBotellas ">
+            <img src="https://static1.squarespace.com/static/5bda2b47cef372c06fd2a748/t/6334a6243be1e632650aaa93/1664394789110/ToneNew.png">
+            <figcaption style="color:#928065 ;">Exfoliate & Hydrating Mist</figcaption>
+        </figure>
+
+        <figure class="imageBotellas ">
+            <img src="https://static1.squarespace.com/static/5bda2b47cef372c06fd2a748/t/6334a5e8d8a9fb4a861f3e09/1664394728428/DayNew.png">
+            <figcaption style="color:#567492 ;">Serum + Moisturizer with Bukachoil Rosehip Speed Oil & Niacinamide</figcaption>
+        </figure>
+            
+        <figure class="imageBotellas ">
+            <img src="https://static1.squarespace.com/static/5bda2b47cef372c06fd2a748/t/6334a60523472b6793e38f21/1664394757266/NightNew.png">
+            <figcaption style="color:#7C97AC ;">Serum + Moisturizer with Vitamin C, Hyaluronic Acid & SPF 20</figcaption>
+        </figure>
+        
+    </div>
+
+    <div class="contenedorMobile">
+        <div class="imgContenedor">
+            <div>
+                <img src="https://static1.squarespace.com/static/5bda2b47cef372c06fd2a748/t/6334a5c5e05a92463bb49da3/1664394693506/Clean.png">
+                <h3 style="color:#D68664 ;">CLEAN</h3>
+                <p style="color:#D68664 ;">Cleasing Oil & Makeup Remover<br></p>
+            </div>
+            <div>
+                <img src="https://static1.squarespace.com/static/5bda2b47cef372c06fd2a748/t/6334a5e8d8a9fb4a861f3e09/1664394728428/DayNew.png">
+                <h3 style="color:#567492 ;">DAY</h3>
+                <p style="color:#567492 ;">Serum + Moisturizer with Bukachoil Rosehip Speed Oil & Niacinamide<br></p>
+            </div>  
+            
+        </div>
+
+        <div class="imgContenedor">
+            
+            <div>
+                <img src="https://static1.squarespace.com/static/5bda2b47cef372c06fd2a748/t/6334a6243be1e632650aaa93/1664394789110/ToneNew.png">
+                <h3 style="color:#928065 ;">TONE</h3>
+                <p style="color:#928065;">Exfoliate & Hydrating Mist</p>
+            </div>
+
+            <div>
+                <img src="https://static1.squarespace.com/static/5bda2b47cef372c06fd2a748/t/6334a60523472b6793e38f21/1664394757266/NightNew.png">
+                <h3 style="color:#7C97AC ;">NIGHT</h3>
+                <p style="color:#7C97AC ;">Serum + Moisturizer with Vitamin C, Hyaluronic Acid & SPF 20</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
