@@ -1,0 +1,28 @@
+// iterador de etiquetas del producto
+
+// 1- itera entre las colecciones a las que pertenece el producto
+{% if product.collections.size > 0 %}
+  <div class="product-single__collections">
+    <p>
+      Categorys:
+      {% for collection in product.collections %}
+        {% assign collection_handle = collection.handle %}
+        <a href="/collections/{{ collection_handle }}">{{ collection.title }}</a>{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    </p>
+  </div>
+{% endif %}
+
+
+// 2- itera entre los tags a las que pertenece el producto
+{% if product.tags.size > 0 %}
+  <div class="product-single__tags">
+    <p>
+      Tags:
+      {% for tag in product.tags %}
+      {% assign tag_coll = '/collections/all/' | append: tag %}
+        {{ tag | capitalize | link_to: tag_coll }}{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    </p>
+  </div>
+{% endif %}
